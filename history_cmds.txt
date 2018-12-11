@@ -7,4 +7,7 @@ MariaDB [test]> select * from Person;
 MariaDB [test]> select * from Person group by Email having count(Email)>1;
 MariaDB [test]> select Email, count(Email) as num from Person group by Email having count(Email)>1;
 MariaDB [test]> drop table Person;
+MariaDB [test]> select Email from (select Email, count(Email) as num from Person group by Email) as xqq where num > 1;
+MariaDB [test]> select p1.* from Person p1, Person p2 where p1.Email = p2.Email and p1.Id > p2.Id;
+
 
