@@ -1,0 +1,10 @@
+
+
+MariaDB [test]> create table Person ( Id int not null auto_increment primary key, Email char(40) not null);
+MariaDB [test]> insert into Person (Id, Email) VALUES (1,'a@b.com'), (2,'b@b.com'), (3,'a@b.com');
+MariaDB [test]> show tables;
+MariaDB [test]> select * from Person;
+MariaDB [test]> select * from Person group by Email having count(Email)>1;
+MariaDB [test]> select Email, count(Email) as num from Person group by Email having count(Email)>1;
+MariaDB [test]> drop table Person;
+
